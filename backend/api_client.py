@@ -17,7 +17,7 @@ def get_news():  # Removed async for simplicity; add back with httpx if needed
 
     params = {
     "apiKey": API_KEY,
-    "q": '("artificial intelligence" OR AI OR "machine learning" OR "deep learning" OR "neural network") ("breakthrough" OR advancement OR innovation OR progress OR "new model" OR "research breakthrough" OR discovery)',
+    "q": '("artificial intelligence" OR AI OR "machine learning" OR "deep learning" OR "neural network") ("breakthrough" OR advancement OR innovation OR progress OR "new model" OR "research breakthrough")',
     "language": "en",
     "from": two_days_ago,
     "sortBy": "publishedAt",
