@@ -16,14 +16,13 @@ def get_news():  # Removed async for simplicity; add back with httpx if needed
     two_days_ago = (today - timedelta(days=2)).strftime("%Y-%m-%d")
 
     params = {
-        "apiKey": API_KEY,
-        "q": 'AI OR "artificial intelligence" OR "machine learning" (breakthrough OR advancement OR innovation OR progress)',
-        "language": "en",
-        "from": two_days_ago,          # YYYY-MM-DD format (NewsAPI accepts this)
-        "sortBy": "publishedAt",       # newest first
-        "pageSize": 10,
-        # "searchIn": "title,description"  # optional, but supported
-    }
+    "apiKey": API_KEY,
+    "q": '("artificial intelligence" OR AI OR "machine learning" OR "deep learning" OR "neural network") ("breakthrough" OR advancement OR innovation OR progress OR "new model" OR "research breakthrough" OR discovery)',
+    "language": "en",
+    "from": two_days_ago,
+    "sortBy": "publishedAt",
+    "pageSize": 10,
+}
 
     try:
         response = requests.get(BASE_URL, params=params, timeout=10)
