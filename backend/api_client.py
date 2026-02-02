@@ -13,13 +13,13 @@ def get_news():  # Removed async for simplicity; add back with httpx if needed
         return {"articles": [], "total": 0, "error": "API key not found in .env"}
 
     today = datetime.utcnow()
-    two_days_ago = (today - timedelta(days=2)).strftime("%Y-%m-%d")
+    yesterday = (today - timedelta(days=1)).strftime("%Y-%m-%d")
 
     params = {
     "apiKey": API_KEY,
     "q": '("artificial intelligence" OR AI OR "machine learning" OR "deep learning" OR "neural network") ("breakthrough" OR advancement OR innovation OR progress OR "new model" OR discovery OR "research" OR "new AI")',
     "language": "en",
-    "from": two_days_ago,
+    "from": yesterday,
     "sortBy": "publishedAt",
     "pageSize": 10,
 }
